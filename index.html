@@ -5,9 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
-        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="Assets/style.css"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="Assets/style.css" />
 </head>
 
 <body>
@@ -15,6 +14,34 @@
         <div class="col-md-12" id="header">
             <h1>Weather Dashboard</h1>
         </div>
+    </div>
+    <div class="row" id="search">
+        <div class="col-md-4">
+            <form>
+                <div class="form-row">
+                    <div class="col-md-6 mb-3">
+                        <label for="validationDefault03">Search for a City:</label>
+                        <input type="text" class="form-control" id="weatherInput">
+                    </div>
+                    <button class="btn btn-primary" id="searchButton" type="submit">Go</button>
+            </form>
+        </div>
+        <div class="col-md-8" id="currentCity">
+            <div class="city"></div>
+            <div class="tempF"></div>
+            <div class="humidity"></div>
+            <div class="wind"></div>
+            <div class="uvIndex"></div>
+        </div>
+    </div>
+    <div class="row">
+        
+
+
+
+
+
+
     </div>
 
 
@@ -26,14 +53,8 @@
 
 
 
-
-
-
-
-
-
-
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
     <script src="Assets/script.js"></script>
 </body>
 
