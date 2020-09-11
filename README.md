@@ -26,7 +26,7 @@ THEN I am presented with the last searched city forecast
 ```
 
 ## Website Features
-1) Ability to search for weather based on city location
+1) Ability to search for weather based on city names
 2) Diplays current weather for that city as well as a 5-day forecast
 3) Saves history of each city searched for as buttons for convenience
 
