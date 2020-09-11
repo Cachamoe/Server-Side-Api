@@ -1,3 +1,5 @@
+/* ID Styles */
+
 #header {
     color: white;
     text-align: center;
@@ -13,4 +15,38 @@
     height: 39px;
     position: relative; top: 31px;
     position: relative; right: 5px;
+}
+
+#currentCity {
+    margin-top: 10%;
+}
+
+#fiveDay {
+    margin-top: 40%;
+}
+
+/* Class Styles */
+
+.weather {
+    margin-top: 3%;
+}
+
+.tempF {
+    margin-top: 10%;
+}
+
+.humidity {
+    margin-top: 5%;
+}
+
+.wind {
+    margin-top: 5%;
+}
+
+.uvIndex {
+    margin-top: 5%;
+}
+
+#fiveDay {
+    display: none;
 }
