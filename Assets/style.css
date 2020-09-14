@@ -25,6 +25,11 @@
     margin-top: 30%;
 }
 
+#fiveDay {
+    display: none;
+    margin-top: 15%;
+}
+
 /* Class Styles */
 
 .weather {
@@ -47,6 +52,3 @@
     margin-top: 5%;
 }
 
-#fiveDay {
-    display: none;
-}
