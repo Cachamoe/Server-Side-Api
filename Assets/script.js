@@ -84,23 +84,23 @@ function search(city) {
 
             // 5-Day forecast
             $("#day1").text(moment().add(1, 'days').format('l'));
-            $("#day1Temp").text("Temp: " + Math.round((response.list[7].main.temp - 273.15) * 1.80 + 32) + " °F");
+            $("#day1Temp").text("Temp: " + Math.round((response.list[7].main.temp - 273.15) * 1.80 + 32) + "°F");
             $("#day1Hum").text("Humidity: " + response.list[7].main.humidity + "%");
 
             $("#day2").text(moment().add(2, 'days').format('l'));
-            $("#day2Temp").text("Temp: " + Math.round((response.list[15].main.temp - 273.15) * 1.80 + 32) + " °F");
+            $("#day2Temp").text("Temp: " + Math.round((response.list[15].main.temp - 273.15) * 1.80 + 32) + "°F");
             $("#day2Hum").text("Humidity: " + response.list[15].main.humidity + "%");
 
             $("#day3").text(moment().add(3, 'days').format('l'));
-            $("#day3Temp").text("Temp: " + Math.round((response.list[23].main.temp - 273.15) * 1.80 + 32) + " °F");
+            $("#day3Temp").text("Temp: " + Math.round((response.list[23].main.temp - 273.15) * 1.80 + 32) + "°F");
             $("#day3Hum").text("Humidity: " + response.list[23].main.humidity + "%");
 
             $("#day4").text(moment().add(4, 'days').format('l'));
-            $("#day4Temp").text("Temp: " + Math.round((response.list[31].main.temp - 273.15) * 1.80 + 32) + " °F");
+            $("#day4Temp").text("Temp: " + Math.round((response.list[31].main.temp - 273.15) * 1.80 + 32) + "°F");
             $("#day4Hum").text("Humidity: " + response.list[31].main.humidity + "%");
 
             $("#day5").text(moment().add(5, 'days').format('l'));
-            $("#day5Temp").text("Temp: " + Math.round((response.list[39].main.temp - 273.15) * 1.80 + 32) + " °F");
+            $("#day5Temp").text("Temp: " + Math.round((response.list[39].main.temp - 273.15) * 1.80 + 32) + "°F");
             $("#day5Hum").text("Humidity: " + response.list[39].main.humidity + "%");
         });
     });

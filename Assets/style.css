@@ -23,8 +23,8 @@
 
 #fiveDay {
     display: none;
-    margin-top: 3%;
-    margin-left: 53%;
+    margin-top: 1%;
+    margin-left: 40%;
 }
 
 #city {
@@ -32,7 +32,7 @@
 }
 
 #tempF {
-    margin-top: 3%;
+    margin-top: 2%;
 }
 
 #humidity {
@@ -75,6 +75,7 @@
 }
 
 .list-group-item.active {
-    width: 350px;
+    width: 33%;
     margin-right: 8%;
+    text-align: center;
 }
