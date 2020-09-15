@@ -38,7 +38,8 @@ function search(city) {
         var tempF = (response.main.temp - 273.15) * 1.80 + 32;
         var iconCode = response.weather[0].icon;
         var iconUrl = "http://openweathermap.org/img/w/" + iconCode + ".png";
-        $("#wicon").attr("src", iconUrl)
+
+        $("#wicon").attr("src", iconUrl);
 
         // Transfer to HTML
         $("#city").html("<h1>" + response.name + " " + "(" + moment().format('l') + ")" + " " + "</h1>");
@@ -58,37 +59,34 @@ function search(city) {
         $.ajax({
             url: "https://api.openweathermap.org/data/2.5/forecast?q=" + city + "&appid=" + APIKey,
             method: "GET"
-        }).then(function (list) {
-            console.log(list);
-
-            // Variables
-
+        }).then(function (response) {
+            console.log(response);
 
             // 5-Day forecast
             $("#day1").text(moment().add(1, 'days').format('l'));
-            $("#day1Icon").text(list[7].weather.icon);
-            $("#day1Temp").text("Temp: " + Math.round(tempF) + " °F");
-            $("#day1Hum").text("Humidity: " + list[7].main.humidity + "%");
+            $("#day1Icon").text(response.list[7].weather[0].icon);
+            $("#day1Temp").text("Temp: " + Math.round(response.list[7].main.temp) + " °F");
+            $("#day1Hum").text("Humidity: " + response.list[7].main.humidity + "%");
 
             $("#day2").text(moment().add(2, 'days').format('l'));
-            $("#day2Icon").text(list[15].weather.icon);
-            $("#day2Temp").text("Temp: " + Math.round(tempF) + " °F");
-            $("#day2Hum").text("Humidity: " + list[15].main.humidity + "%");
+            $("#day2Icon").text(response.list[15].weather[0].icon);
+            $("#day2Temp").text("Temp: " + Math.round(response.list[15].main.temp) + " °F");
+            $("#day2Hum").text("Humidity: " + response.list[15].main.humidity + "%");
 
             $("#day3").text(moment().add(3, 'days').format('l'));
-            $("#day3Icon").text(list[23].weather.icon);
-            $("#day3Temp").text("Temp: " + Math.round(tempF) + " °F");
-            $("#day3Hum").text("Humidity: " + list[23].main.humidity + "%");
+            $("#day3Icon").text(response.list[23].weather[0].icon);
+            $("#day3Temp").text("Temp: " + Math.round(response.list[23].main.temp) + " °F");
+            $("#day3Hum").text("Humidity: " + response.list[23].main.humidity + "%");
 
             $(".day4").text(moment().add(4, 'days').format('l'));
-            $(".day4Icon").text(list[31].weather.icon);
-            $(".day4Temp").text("Temp: " + Math.round(tempF) + " °F");
-            $(".day4Hum").text("Humidity: " + list[31].main.humidity + "%");
+            $(".day4Icon").text(response.list[31].weather[0].icon);
+            $(".day4Temp").text("Temp: " + Math.round(response.list[31].main.temp) + " °F");
+            $(".day4Hum").text("Humidity: " + response.list[31].main.humidity + "%");
 
             $(".day5").text(moment().add(5, 'days').format('l'));
-            $(".day5Icon").text(list[39].weather.icon);
-            $(".day5Temp").text("Temp: " + Math.round(tempF) + " °F");
-            $(".day5Hum").text("Humidity: " + list[39].main.humidity + "%");
+            $(".day5Icon").text(response.list[39].weather[0].icon);
+            $(".day5Temp").text("Temp: " + Math.round(response.list[39].main.temp) + " °F");
+            $(".day5Hum").text("Humidity: " + response.list[39].main.humidity + "%");
         });
     });
 }
