@@ -23,7 +23,7 @@
 
 #fiveDay {
     display: none;
-    margin-top: 5%;
+    margin-top: 3%;
     margin-left: 53%;
 }
 
@@ -51,12 +51,6 @@
     display: none;
 }
 
-.weather {
-    height: 50px;
-    width: 375px;
-    text-align: left;
-}
-
 #history {
     margin-top: 5%;
     margin-left: -3.5%;
@@ -72,7 +66,15 @@
     margin-left: .1%;
 }
 
+/* Class Styles */
+
+.weather {
+    height: 50px;
+    width: 375px;
+    text-align: left;
+}
+
 .list-group-item.active {
-    width: 500px;
-    margin-right: 10%;
+    width: 350px;
+    margin-right: 8%;
 }

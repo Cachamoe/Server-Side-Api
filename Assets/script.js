@@ -39,6 +39,7 @@ function search(city) {
         var iconCode = response.weather[0].icon;
         var iconUrl = "http://openweathermap.org/img/w/" + iconCode + ".png";
 
+        // Set source attribute for the URL
         $("#wicon").attr("src", iconUrl);
 
         // Transfer to HTML
@@ -62,34 +63,49 @@ function search(city) {
         }).then(function (response) {
             console.log(response);
 
+            // Variables
+            var iconCode1 = response.list[7].weather[0].icon;
+            var iconCode2 = response.list[15].weather[0].icon;
+            var iconCode3 = response.list[23].weather[0].icon;
+            var iconCode4 = response.list[31].weather[0].icon;
+            var iconCode5 = response.list[39].weather[0].icon;
+            var iconUrl1 = "http://openweathermap.org/img/w/" + iconCode1 + ".png";
+            var iconUrl2 = "http://openweathermap.org/img/w/" + iconCode2 + ".png";
+            var iconUrl3 = "http://openweathermap.org/img/w/" + iconCode3 + ".png";
+            var iconUrl4 = "http://openweathermap.org/img/w/" + iconCode4 + ".png";
+            var iconUrl5 = "http://openweathermap.org/img/w/" + iconCode5 + ".png";
+
+            // Set source attribute for URls
+            $("#wicon1").attr("src", iconUrl1);
+            $("#wicon2").attr("src", iconUrl2);
+            $("#wicon3").attr("src", iconUrl3);
+            $("#wicon4").attr("src", iconUrl4);
+            $("#wicon5").attr("src", iconUrl5);
+
             // 5-Day forecast
             $("#day1").text(moment().add(1, 'days').format('l'));
-            $("#day1Icon").text(response.list[7].weather[0].icon);
-            $("#day1Temp").text("Temp: " + Math.round(response.list[7].main.temp) + " °F");
+            $("#day1Temp").text("Temp: " + Math.round((response.list[7].main.temp - 273.15) * 1.80 + 32) + " °F");
             $("#day1Hum").text("Humidity: " + response.list[7].main.humidity + "%");
 
             $("#day2").text(moment().add(2, 'days').format('l'));
-            $("#day2Icon").text(response.list[15].weather[0].icon);
-            $("#day2Temp").text("Temp: " + Math.round(response.list[15].main.temp) + " °F");
+            $("#day2Temp").text("Temp: " + Math.round((response.list[15].main.temp - 273.15) * 1.80 + 32) + " °F");
             $("#day2Hum").text("Humidity: " + response.list[15].main.humidity + "%");
 
             $("#day3").text(moment().add(3, 'days').format('l'));
-            $("#day3Icon").text(response.list[23].weather[0].icon);
-            $("#day3Temp").text("Temp: " + Math.round(response.list[23].main.temp) + " °F");
+            $("#day3Temp").text("Temp: " + Math.round((response.list[23].main.temp - 273.15) * 1.80 + 32) + " °F");
             $("#day3Hum").text("Humidity: " + response.list[23].main.humidity + "%");
 
             $("#day4").text(moment().add(4, 'days').format('l'));
-            $("#day4Icon").text(response.list[31].weather[0].icon);
-            $("#day4Temp").text("Temp: " + Math.round(response.list[31].main.temp) + " °F");
+            $("#day4Temp").text("Temp: " + Math.round((response.list[31].main.temp - 273.15) * 1.80 + 32) + " °F");
             $("#day4Hum").text("Humidity: " + response.list[31].main.humidity + "%");
 
             $("#day5").text(moment().add(5, 'days').format('l'));
-            $("#day5Icon").text(response.list[39].weather[0].icon);
-            $("#day5Temp").text("Temp: " + Math.round(response.list[39].main.temp) + " °F");
+            $("#day5Temp").text("Temp: " + Math.round((response.list[39].main.temp - 273.15) * 1.80 + 32) + " °F");
             $("#day5Hum").text("Humidity: " + response.list[39].main.humidity + "%");
         });
     });
 }
+
 // Functionality for city search button
 $("#searchButton").on("click", function (event) {
     event.preventDefault();
@@ -114,7 +130,7 @@ function createButtons() {
     }
 }
 
-// Functionality for all created buttons
+// Functionality for created buttons
 $(document).on("click", ".weather", function (event) {
     event.preventDefault();
     var city = $(this).text();
