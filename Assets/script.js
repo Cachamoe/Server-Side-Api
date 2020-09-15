@@ -78,15 +78,15 @@ function search(city) {
             $("#day3Temp").text("Temp: " + Math.round(response.list[23].main.temp) + " °F");
             $("#day3Hum").text("Humidity: " + response.list[23].main.humidity + "%");
 
-            $(".day4").text(moment().add(4, 'days').format('l'));
-            $(".day4Icon").text(response.list[31].weather[0].icon);
-            $(".day4Temp").text("Temp: " + Math.round(response.list[31].main.temp) + " °F");
-            $(".day4Hum").text("Humidity: " + response.list[31].main.humidity + "%");
+            $("#day4").text(moment().add(4, 'days').format('l'));
+            $("#day4Icon").text(response.list[31].weather[0].icon);
+            $("#day4Temp").text("Temp: " + Math.round(response.list[31].main.temp) + " °F");
+            $("#day4Hum").text("Humidity: " + response.list[31].main.humidity + "%");
 
-            $(".day5").text(moment().add(5, 'days').format('l'));
-            $(".day5Icon").text(response.list[39].weather[0].icon);
-            $(".day5Temp").text("Temp: " + Math.round(response.list[39].main.temp) + " °F");
-            $(".day5Hum").text("Humidity: " + response.list[39].main.humidity + "%");
+            $("#day5").text(moment().add(5, 'days').format('l'));
+            $("#day5Icon").text(response.list[39].weather[0].icon);
+            $("#day5Temp").text("Temp: " + Math.round(response.list[39].main.temp) + " °F");
+            $("#day5Hum").text("Humidity: " + response.list[39].main.humidity + "%");
         });
     });
 }

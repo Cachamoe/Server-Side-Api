@@ -71,3 +71,8 @@
     display: none;
     margin-left: .1%;
 }
+
+.list-group-item.active {
+    width: 500px;
+    margin-right: 10%;
+}
