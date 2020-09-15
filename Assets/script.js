@@ -29,18 +29,23 @@ function search(city) {
         }
 
         $("#fiveDay").show();
+        $("#wicon").show();
+        $("#cityWeather").show();
         createButtons();
         console.log(response);
 
-        // Convert temp to fahrenheit
+        // Variables
         var tempF = (response.main.temp - 273.15) * 1.80 + 32;
+        var iconCode = response.weather[0].icon;
+        var iconUrl = "http://openweathermap.org/img/w/" + iconCode + ".png";
+        $("#wicon").attr("src", iconUrl)
 
         // Transfer to HTML
-        $(".city").html("<h1>" + response.name + " " + "(" + moment().format('l') + ")" + " " + response.weather.icon + "</h1>");
-        $(".tempF").text("Temperature: " + Math.round(tempF) + " °F");
-        $(".humidity").text("Humidity: " + response.main.humidity + "%");
-        $(".wind").text("Wind Speed: " + response.wind.speed + " MPH");
-        $(".uvIndex").text("UV Index: " + response.uvi);
+        $("#city").html("<h1>" + response.name + " " + "(" + moment().format('l') + ")" + " " + "</h1>");
+        $("#tempF").text("Temperature: " + Math.round(tempF) + " °F");
+        $("#humidity").text("Humidity: " + response.main.humidity + "%");
+        $("#wind").text("Wind Speed: " + response.wind.speed + " MPH");
+        $("#uvIndex").text("UV Index: " + response.uvi);
 
         // Console log results
         console.log("City: " + response.name);
@@ -56,34 +61,34 @@ function search(city) {
         }).then(function (list) {
             console.log(list);
 
-            // Convert temp to fahrenheit
-            var tempF = (list.main.temp - 273.15) * 1.80 + 32;
+            // Variables
+
 
             // 5-Day forecast
-            $(".day1").text(moment().add(1, 'days').calendar());
-            $(".day1Icon").text(list.weather.icon);
-            $(".day1Temp").text("Temp: " + Math.round(tempF) + " °F");
-            $(".day1Hum").text("Humidity: " + list.main.humidity + "%");
+            $("#day1").text(moment().add(1, 'days').format('l'));
+            $("#day1Icon").text(list[7].weather.icon);
+            $("#day1Temp").text("Temp: " + Math.round(tempF) + " °F");
+            $("#day1Hum").text("Humidity: " + list[7].main.humidity + "%");
 
-            $(".day2").text(moment().add(2, 'days').calendar());
-            $(".day2Icon").text(list.weather.icon);
-            $(".day2Temp").text("Temp: " + Math.round(tempF) + " °F");
-            $(".day2Hum").text("Humidity: " + list.main.humidity + "%");
+            $("#day2").text(moment().add(2, 'days').format('l'));
+            $("#day2Icon").text(list[15].weather.icon);
+            $("#day2Temp").text("Temp: " + Math.round(tempF) + " °F");
+            $("#day2Hum").text("Humidity: " + list[15].main.humidity + "%");
 
-            $(".day3").text(moment().add(3, 'days').calendar());
-            $(".day3Icon").text(list.weather.icon);
-            $(".day3Temp").text("Temp: " + Math.round(tempF) + " °F");
-            $(".day3Hum").text("Humidity: " + list.main.humidity + "%");
+            $("#day3").text(moment().add(3, 'days').format('l'));
+            $("#day3Icon").text(list[23].weather.icon);
+            $("#day3Temp").text("Temp: " + Math.round(tempF) + " °F");
+            $("#day3Hum").text("Humidity: " + list[23].main.humidity + "%");
 
-            $(".day4").text(moment().add(4, 'days').calendar());
-            $(".day4Icon").text(list.weather.icon);
+            $(".day4").text(moment().add(4, 'days').format('l'));
+            $(".day4Icon").text(list[31].weather.icon);
             $(".day4Temp").text("Temp: " + Math.round(tempF) + " °F");
-            $(".day4Hum").text("Humidity: " + list.main.humidity + "%");
+            $(".day4Hum").text("Humidity: " + list[31].main.humidity + "%");
 
-            $(".day5").text(moment().add(5, 'days').calendar());
-            $(".day5Icon").text(list.weather.icon);
+            $(".day5").text(moment().add(5, 'days').format('l'));
+            $(".day5Icon").text(list[39].weather.icon);
             $(".day5Temp").text("Temp: " + Math.round(tempF) + " °F");
-            $(".day5Hum").text("Humidity: " + list.main.humidity + "%");
+            $(".day5Hum").text("Humidity: " + list[39].main.humidity + "%");
         });
     });
 }
@@ -102,7 +107,6 @@ function createButtons() {
     $("#history").empty();
     console.log(Cities)
     for (var i = 0; i < Cities.length; i++) {
-
 
         var a = $("<button>");
         a.addClass("weather");

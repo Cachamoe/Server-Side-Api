@@ -16,11 +16,11 @@
         </div>
     </div>
     <div class="row" id="search">
-        <div class="col-md-4">
+        <div class="col-md-4" id="searchBar">
             <form>
                 <div class="form-row">
                     <div class="col-md-6">
-                        <label for="validationDefault03">Search for a City:</label>
+                        <label for="validationDefault03"><strong>Search for a City:</strong></label>
                         <input type="text" class="form-control" id="weatherInput">
                     </div>
                     <button class="btn btn-primary" id="searchButton" type="submit">Go</button>
@@ -28,41 +28,45 @@
         </div>
         <div class="col-md-4" id="history"></div>
     </div>
-    <div class="row">
-        <div id="currentCity">
-        <div class="city"></div>
-        <div class="tempF"></div>
-        <div class="humidity"></div>
-        <div class="wind"></div>
-        <div class="uvIndex"></div>
-        
-
+    <div class="row col-md-8" id="cityWeather">
+        <div id="currentCity"></div>
+        <ul>
+            <div id="city" id="icon"><img id="wicon" src="" alt="Weather icon"></div>
+            <div id="tempF"></div>
+            <div id="humidity"></div>
+            <div id="wind"></div>
+            <div id="uvIndex"></div>
+        </ul>
+    </div>
+    <div class="col-md-8">
         <div id="fiveDay">
-        <div><h1>5-Day Forecast:</h1></div>
-        <div class="day1"></div>
-        <div class="day1Icon"></div>
-        <div class="day1Temp"></div>
-        <div class="day1Hum"></div>
+            <div>
+                <h2>5-Day Forecast:</h2>
+            </div>
+            <div id="day1"></div>
+            <div id="day1Icon"></div>
+            <div id="day1Temp"></div>
+            <div id="day1Hum"></div>
 
-        <div class="day2"></div>
-        <div class="day2Icon"></div>
-        <div class="day2Temp"></div>
-        <div class="day2Hum"></div>
+            <div id="day2"></div>
+            <div id="day2Icon"></div>
+            <div id="day2Temp"></div>
+            <div id="day2Hum"></div>
 
-        <div class="day3"></div>
-        <div class="day3Icon"></div>
-        <div class="day3Temp"></div>
-        <div class="day3Hum"></div>
+            <div id="day3"></div>
+            <div id="day3Icon"></div>
+            <div id="day3Temp"></div>
+            <div id="day3Hum"></div>
 
-        <div class="day4"></div>
-        <div class="day4Icon"></div>
-        <div class="day4Temp"></div>
-        <div class="day4Hum"></div>
+            <div id="day4"></div>
+            <div id="day4Icon"></div>
+            <div id="day4Temp"></div>
+            <div id="day4Hum"></div>
 
-        <div class="day5"></div>
-        <div class="day5Icon"></div>
-        <div class="day5Temp"></div>
-        <div class="day5Hum"></div>
+            <div id="day5"></div>
+            <div id="day5Icon"></div>
+            <div id="day5Temp"></div>
+            <div id="day5Hum"></div>
         </div>
     </div>
 

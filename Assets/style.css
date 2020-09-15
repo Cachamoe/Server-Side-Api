@@ -18,37 +18,56 @@
 }
 
 #currentCity {
-    margin-top: 10%;
-}
-
-#fiveDay {
-    margin-top: 30%;
+    margin-top: -5%;
 }
 
 #fiveDay {
     display: none;
-    margin-top: 15%;
+    margin-top: 5%;
+    margin-left: 52%;
 }
 
-/* Class Styles */
-
-.weather {
-    margin-top: 3%;
-}
-
-.tempF {
+#city {
     margin-top: 10%;
 }
 
-.humidity {
-    margin-top: 5%;
+#tempF {
+    margin-top: 3%;
 }
 
-.wind {
-    margin-top: 5%;
+#humidity {
+    margin-top: 3%;
 }
 
-.uvIndex {
-    margin-top: 5%;
+#wind {
+    margin-top: 3%;
 }
 
+#uvIndex {
+    margin-top: 3%;
+}
+
+#wicon {
+    display: none;
+}
+
+.weather {
+    height: 50px;
+    width: 325px;
+    text-align: left;
+}
+
+#history {
+    margin-top: 5%;
+    margin-left: -3.5%;
+}
+
+#searchBar {
+    background-color: whitesmoke;
+}
+
+#cityWeather {
+    border-style: ridge;
+    display: none;
+    margin-left: .1%;
+}
