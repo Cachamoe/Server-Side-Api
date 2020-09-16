@@ -3,7 +3,6 @@ var APIKey = "e9f55feff994f14d8c3aa8dcc774b0f8";
 var Cities = [];
 var lastElement = localStorage.getItem("Cities");
 
-lastElement.val
 $("#history").append(lastElement);
 
 
@@ -119,16 +118,16 @@ function search(city) {
 // Functionality for city search button
 $("#searchButton").on("click", function (event) {
     event.preventDefault();
-    var city = $("#weatherInput").val()
-    search(city)
+    var city = $("#weatherInput").val();
+    search(city);
 });
 
 // Function for creating buttons 
 function createButtons() {
-    var city = $("#weatherInput").val()
+    var city = $("#weatherInput").val();
     $("#weatherInput").val("");
     $("#history").empty();
-    console.log(Cities)
+    console.log(Cities);
     for (var i = 0; i < Cities.length; i++) {
 
         var a = $("<button>");
