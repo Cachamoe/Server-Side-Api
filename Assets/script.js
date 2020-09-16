@@ -1,37 +1,25 @@
 // Variables
-var APIKey = "e9f55feff994f14d8c3aa8dcc774b0f8";
-var Cities = [];
-var lastElement = localStorage.getItem("Cities", Cities);
+var apikey = "e9f55feff994f14d8c3aa8dcc774b0f8";
+var cities = JSON.parse(localStorage.getItem("Cities", cities));
 
-$("#history").append(lastElement);
 
+if (cities === null) {
+    cities = [];
+} else {
+    search(cities[0]);
+}
 
 function search(city) {
 
     // AJAX call to OpenWeatherMap API (current weather)
     $.ajax({
-        url: "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + APIKey,
+        url: "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + apikey,
         method: "GET"
     }).then(function (response) {
         console.log(city)
-        if (Cities.length === 0) {
-            Cities.push(city);
-            localStorage.setItem("Cities", JSON.stringify(Cities));
-        }
-        else {
-            for (var i = 0; i < Cities.length; i++) {
-                var countCity = 1
-                for (var j = 0; j < Cities.length; j++) {
-                    if (Cities[j].includes(city)) {
-                        countCity++;
-                    }
-                }
-                console.log(countCity, Cities)
-                if (countCity === 1) {
-                    Cities.push(city);
-                    localStorage.setItem("Cities", JSON.stringify([Cities.length - 1]));
-                }
-            }
+        if (!cities.includes(city)) {
+            cities.unshift(city);
+            localStorage.setItem("Cities", JSON.stringify(cities));
         }
 
         // To run after search button activated
@@ -64,8 +52,9 @@ function search(city) {
         console.log("Wind Speed: " + response.wind.speed + " MPH");
 
 
+        // AJAX call to OpenWeatherMap API (UV Index)
         $.ajax({
-            url: "https://api.openweathermap.org/data/2.5/onecall?lat=" + lat + "&lon=" + lon + "&exclude=hourly" + "&appid=" + APIKey,
+            url: "https://api.openweathermap.org/data/2.5/onecall?lat=" + lat + "&lon=" + lon + "&exclude=hourly" + "&appid=" + apikey,
             method: "GET"
         }).then(function (response) {
             console.log(response);
@@ -76,22 +65,22 @@ function search(city) {
             $("#uvIndex").text("UV Index: " + uvi);
             console.log("UV Index: " + uvi);
 
-            if (uvi < 3) {
-                $("#uvIndex").addClass("low");
-                $("#uvIndex").removeClass("moderate", "high");
-            } else if (uvi > 5) {
-                $("#uvIndex").addClass("high");
-                $("#uvIndex").removeClass("low", "moderate");
+            if (uvi <= 3) {
+                $("#uvIndex").addClass("low")
+                $("#uvIndex").removeClass("moderate high")
+            } else if (uvi >= 5) {
+                $("#uvIndex").addClass("high")
+                $("#uvIndex").removeClass("low moderate")
             } else {
-                $("#uvIndex").addClass("moderate");
-                $("#uvIndex").removeClass("low", "high");
+                $("#uvIndex").addClass("moderate")
+                $("#uvIndex").removeClass("low high")
             }
         });
 
 
         // AJAX call to OpenWeatherMap API (5-day forecast)
         $.ajax({
-            url: "https://api.openweathermap.org/data/2.5/forecast?q=" + city + "&appid=" + APIKey,
+            url: "https://api.openweathermap.org/data/2.5/forecast?q=" + city + "&appid=" + apikey,
             method: "GET"
         }).then(function (response) {
             console.log(response);
@@ -137,8 +126,7 @@ function search(city) {
             $("#day5Hum").text("Humidity: " + response.list[39].main.humidity + "%");
         });
     });
-}
-
+};
 
 // Functionality for city search button
 $("#searchButton").on("click", function (event) {
@@ -152,16 +140,16 @@ function createButtons() {
     var city = $("#weatherInput").val();
     $("#weatherInput").val("");
     $("#history").empty();
-    console.log(Cities);
-    for (var i = 0; i < Cities.length; i++) {
+    console.log(cities);
+    for (var i = 0; i < cities.length; i++) {
 
         var a = $("<button>");
         a.addClass("weather");
         a.addClass("form-control");
-        a.text(Cities[i]);
+        a.text(cities[i]);
         $("#history").append(a);
-    }
-}
+    };
+};
 
 // Functionality for created buttons
 $(document).on("click", ".weather", function (event) {
