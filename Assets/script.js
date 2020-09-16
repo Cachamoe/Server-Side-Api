@@ -1,7 +1,7 @@
 // Variables
 var APIKey = "e9f55feff994f14d8c3aa8dcc774b0f8";
 var Cities = [];
-var lastElement = localStorage.getItem("Cities");
+var lastElement = localStorage.getItem("Cities", Cities);
 
 $("#history").append(lastElement);
 
@@ -45,6 +45,8 @@ function search(city) {
         var tempF = (response.main.temp - 273.15) * 1.80 + 32;
         var iconCode = response.weather[0].icon;
         var iconUrl = "http://openweathermap.org/img/w/" + iconCode + ".png";
+        var lat = response.coord.lat;
+        var lon = response.coord.lon;
 
         // Set source attribute for the URL
         $("#wicon").attr("src", iconUrl);
@@ -54,14 +56,34 @@ function search(city) {
         $("#tempF").text("Temperature: " + Math.round(tempF) + " °F");
         $("#humidity").text("Humidity: " + response.main.humidity + "%");
         $("#wind").text("Wind Speed: " + response.wind.speed + " MPH");
-        $("#uvIndex").text("UV Index: " + response.uvi);
 
         // Console log results
         console.log("City: " + response.name);
         console.log("Temperature: " + Math.round(tempF) + " °F");
         console.log("Humidity: " + response.main.humidity + "%");
         console.log("Wind Speed: " + response.wind.speed + " MPH");
-        console.log("UV Index: " + response.uvi);
+
+
+        $.ajax({
+            url: "https://api.openweathermap.org/data/2.5/onecall?lat=" + lat + "&lon=" + lon + "&exclude=hourly" + "&appid=" + APIKey,
+            method: "GET"
+        }).then(function (response) {
+            console.log(response);
+
+            var uvi = response.current.uvi;
+
+            // Transfer to HTML and Console log result
+            $("#uvIndex").text("UV Index: " + uvi);
+            console.log("UV Index: " + uvi);
+
+            if (uvi < 3) {
+                $("#uvIndex").addClass("low");
+            } else if (uvi > 5) {
+            $("#uvIndex").addClass("high");
+            } else {
+                $("#uvIndex").addClass("moderate");
+            } 
+        });
 
 
         // AJAX call to OpenWeatherMap API (5-day forecast)

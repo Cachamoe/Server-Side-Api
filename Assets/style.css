@@ -66,6 +66,10 @@
     margin-left: .1%;
 }
 
+#uvIndex {
+    width: 110px;
+    text-align: center;
+}
 /* Class Styles */
 
 .weather {
@@ -78,4 +82,19 @@
     width: 33%;
     margin-right: 8%;
     text-align: center;
+}
+
+.low {
+    background-color: green;
+    color: white;
+}
+
+.moderate {
+    background-color: yellow;
+    color: white;
+}
+
+.high {
+    background-color: red;
+    color: white;
 }
