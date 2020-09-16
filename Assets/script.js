@@ -1,6 +1,11 @@
 // Variables
 var APIKey = "e9f55feff994f14d8c3aa8dcc774b0f8";
 var Cities = [];
+var lastElement = localStorage.getItem("Cities");
+
+lastElement.val
+$("#history").append(lastElement);
+
 
 function search(city) {
 
@@ -12,6 +17,7 @@ function search(city) {
         console.log(city)
         if (Cities.length === 0) {
             Cities.push(city);
+            localStorage.setItem("Cities", JSON.stringify(Cities));
         }
         else {
             for (var i = 0; i < Cities.length; i++) {
@@ -24,10 +30,12 @@ function search(city) {
                 console.log(countCity, Cities)
                 if (countCity === 1) {
                     Cities.push(city);
+                    localStorage.setItem("Cities", JSON.stringify([Cities.length - 1]));
                 }
             }
         }
 
+        // To run after search button activated
         $("#fiveDay").show();
         $("#wicon").show();
         $("#cityWeather").show();
@@ -55,6 +63,7 @@ function search(city) {
         console.log("Humidity: " + response.main.humidity + "%");
         console.log("Wind Speed: " + response.wind.speed + " MPH");
         console.log("UV Index: " + response.uvi);
+
 
         // AJAX call to OpenWeatherMap API (5-day forecast)
         $.ajax({
@@ -106,13 +115,13 @@ function search(city) {
     });
 }
 
+
 // Functionality for city search button
 $("#searchButton").on("click", function (event) {
     event.preventDefault();
     var city = $("#weatherInput").val()
     search(city)
 });
-
 
 // Function for creating buttons 
 function createButtons() {
