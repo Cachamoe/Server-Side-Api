@@ -68,7 +68,7 @@ function search(city) {
             if (uvi <= 3) {
                 $("#uvIndex").addClass("low")
                 $("#uvIndex").removeClass("moderate high")
-            } else if (uvi >= 5) {
+            } else if (uvi >= 6) {
                 $("#uvIndex").addClass("high")
                 $("#uvIndex").removeClass("low moderate")
             } else {
