@@ -78,11 +78,14 @@ function search(city) {
 
             if (uvi < 3) {
                 $("#uvIndex").addClass("low");
+                $("#uvIndex").removeClass("moderate", "high");
             } else if (uvi > 5) {
-            $("#uvIndex").addClass("high");
+                $("#uvIndex").addClass("high");
+                $("#uvIndex").removeClass("low", "moderate");
             } else {
                 $("#uvIndex").addClass("moderate");
-            } 
+                $("#uvIndex").removeClass("low", "high");
+            }
         });
 
 
@@ -166,5 +169,3 @@ $(document).on("click", ".weather", function (event) {
     var city = $(this).text();
     search(city);
 });
-
-
