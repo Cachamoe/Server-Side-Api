@@ -5,7 +5,7 @@
 ## Overview
 This website allows the user to look up and see the current weather and 5-day forecast for any city!
 
-Here is a link to the deployed webpage: [https://cachamoe.github.io/Server-Side-Api/]
+Here is a link to the deployed webpage: [https://cachamoe.github.io/Weather-Dashboard/]
 
 I completed this assignment given the acceptance criteria: 
 
