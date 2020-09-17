@@ -7,6 +7,7 @@ if (cities === null) {
     cities = [];
 } else {
     search(cities[0]);
+    cities = [];
 }
 
 function search(city) {
