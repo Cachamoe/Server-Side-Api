@@ -32,7 +32,7 @@ THEN I am presented with the last searched city forecast
 
 
 ## Programs 
-HTML, CSS, Javascript
+HTML, CSS, Javascript, jQuery, moment.js, and Bootstrap
 
 ## Author/s
 Caleb Chaney
