@@ -31,8 +31,8 @@ THEN I am presented with the last searched city forecast
 3) Saves history of each city searched for as buttons for convenience
 
 
-## Programs 
-HTML, CSS, Javascript, jQuery, moment.js, and Bootstrap
+## Technologies 
+HTML, CSS, Javascript, jQuery, Moment.js, and Bootstrap
 
 ## License 
 [![MIT License](https://img.shields.io/apm/l/atomic-design-ui.svg?)](https://github.com/tterb/atomic-design-ui/blob/master/LICENSEs)
